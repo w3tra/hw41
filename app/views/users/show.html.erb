@@ -1,0 +1,4 @@
+<%= @user.name %> <br>
+<%= @user.email %>
+<%= render 'shared/stats' %>
+<%= render 'follow_form' if user_signed_in? %>
