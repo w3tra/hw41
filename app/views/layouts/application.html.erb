@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Hw41</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Hw41</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-  	<%= render 'layouts/application/navbar' %>
-    <%= yield %>
-  </body>
+<body>
+ <%= render 'layouts/application/navbar' %>
+ <div class="container">
+  <% flash.each do |type, message| %>
+  <%= content_tag :div, message, class: "alert alert-#{type}" %>
+  <% end %>
+  <%= yield %>
+</div>
+</body>
 </html>

@@ -8,7 +8,10 @@ class CommentsController < ApplicationController
 	  @comment = @post.comments.create(comment_params)
 	  @comment.user_id = current_user.id #or whatever is you session name
 	  if @comment.save
-	    redirect_to @post
+	    respond_to do |format|
+	      format.html { redirect_to @post }
+	      format.js
+    	end
 	  else
 	    flash.now[:danger] = "error"
 	  end

@@ -2,4 +2,6 @@
 <%= image_tag @post.image(:medium) %>
 <%= @post.description %>
 <%= render 'comments/form' %>
-<%= render @post.comments %>
+<div id="comments">
+	<%= render @post.comments %>
+</div>
