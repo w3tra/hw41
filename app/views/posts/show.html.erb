@@ -1,0 +1,5 @@
+<%= @post.user.name %>
+<%= image_tag @post.image(:medium) %>
+<%= @post.description %>
+<%= render 'comments/form' %>
+<%= render @post.comments %>
