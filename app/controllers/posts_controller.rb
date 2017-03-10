@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, only: [:new, :create]
 	def new
 		@post = Post.new
 	end
@@ -19,6 +19,15 @@ class PostsController < ApplicationController
 		@comment = Comment.new
 	end
 	
+	def feed
+		if user_signed_in?
+			user = current_user
+			@posts = Post.where("user_id IN (?) OR user_id = ?", user.following_ids, user.id)
+		else
+			@posts = Post.all.sort_by{rand}.slice(0,20)
+		end
+	end
+
 	private
 	def post_params
 		params.require(:post).permit(:description, :image)

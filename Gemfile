@@ -14,7 +14,6 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'devise-bootstrapped'
 gem 'faker'
-gem 'acts_as_votable'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
