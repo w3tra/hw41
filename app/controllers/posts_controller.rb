@@ -22,10 +22,15 @@ class PostsController < ApplicationController
 	def feed
 		if user_signed_in?
 			user = current_user
-			@posts = Post.where("user_id IN (?) OR user_id = ?", user.following_ids, user.id)
+			@posts = Post.where("user_id IN (?) OR user_id = ?", 
+													user.following_ids, user.id).order('created_at DESC')
 		else
 			@posts = Post.all.sort_by{rand}.slice(0,20)
 		end
+		respond_to do |format|
+      format.html
+      format.js
+    end
 	end
 
 	private
