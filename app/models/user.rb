@@ -25,6 +25,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :posts,    dependent:   :destroy
   has_many :comments, dependent:   :destroy
+  has_many :likes
 
   def follow(other_user)
     following << other_user
@@ -36,5 +37,16 @@ class User < ApplicationRecord
 
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def like(post)
+    self.likes.create(post: post)
+  end
+
+  def unlike(post)
+  end
+
+  def like?(post)
+    post.likes.where(user: self).any?
   end
 end

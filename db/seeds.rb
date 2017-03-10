@@ -29,7 +29,6 @@ User.create!(name:  "Example User",
   end
 end
 
-# Following relationships
 users = User.all
 user  = users.first
 following = users[2..8]
@@ -41,4 +40,12 @@ Post.all.each do |post|
     user = users.sample
     Comment.create(user: user, post: post, body: (user.name + "comment"))
   end
+  5.times do |n|
+    n+=1
+    user = User.find(n)
+    user.likes.create(post: post)
+  end
 end
+
+# Users.each do |user|
+# end

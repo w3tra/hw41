@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships, only: [:create, :destroy]
+  resources :likes, only: [:create, :destroy]
   resources :posts do
    resources :comments
+   member do
+      get :like, :unlike
+    end
   end
 end
