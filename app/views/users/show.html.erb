@@ -1,3 +1,5 @@
+<%= image_tag @user.avatar(:thumb) %> <br>
+<%= link_to "add photo", new_post_path if @user == current_user %>
 <%= @user.name %> <br>
 <%= @user.email %>
 <%= render 'shared/stats' %>

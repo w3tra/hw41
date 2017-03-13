@@ -1,16 +1,5 @@
-<div class="col-md-4" data-id="<%= post.id %>">
-	<%= link_to post.user.name, user_path(post.user) %><br>
-	<%= link_to (image_tag post.image(:medium)), post_path(post) %><br>
-	<%= post.description %> <br>
-	<div id="likes">Likes: <%= post.likes.count %></div>
-	<% unless current_user==@user %>
-	  <div id="like_form">
-	  <% unless current_user.like?(post) %>
-	    <%= form_for(current_user.likes.build, remote: true) do |f| %>
-	  		<div><%= hidden_field_tag :post_id, post.id %></div>
-	  		<%= f.submit "Like", class: "btn btn-primary" %>
-			<% end %>
-	  <% end %>
-	  </div>
+<div class='col-sm-3 col-xs-6 col-md-3 col-lg-3'>
+	<%= link_to post_path(post), class: "fancybox thumbnail", rel: "ligthbox" do %>
+		<%= image_tag post.image(:medium), class: "img-responsive" %>
 	<% end %>
 </div>

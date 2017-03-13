@@ -1,5 +1,5 @@
-<%= @post.user.name %>
-<%= image_tag @post.image(:medium) %>
+<%= link_to @post.user.name, user_path(@post.user) %> <br>
+<%= image_tag @post.image(:medium) %> <br>
 <%= @post.description %>
 <div id="likes">Likes: <%= @post.likes.count %></div>
 <%= render 'like_form' %>

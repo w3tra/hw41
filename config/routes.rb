@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/feed', to: 'posts#feed'
+  get '/recommended', to: 'posts#recommended'
   root 'posts#feed'
   devise_for :users
   resources :users, only: [:show, :edit, :update] do

@@ -9,21 +9,13 @@
       <%= render 'shared/stats' %>
       <% if @users.any? %>
         <div class="user_avatars">
+        <h3><%= @title %></h3>
           <% @users.each do |user| %>
-            <%= link_to "#{user.name}", user_path(user) %>
+            <%= image_tag user.avatar(:thumb) %>
+            <%= link_to "#{user.name}", user_path(user) %> <br>
           <% end %>
         </div>
       <% end %>
     </section>
   </aside>
-  <div class="col-md-8">
-    <h3><%= @title %></h3>
-    <% if @users.any? %>
-      <ul class="users follow">
-        <% @users.each do |user| %>
-          <%= user.name %> <br>
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
 </div>

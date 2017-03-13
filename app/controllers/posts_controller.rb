@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :authenticate_user!, only: [:new, :create]
+	before_action :authenticate_user!, only: [:new, :create, :show]
 	def new
 		@post = Post.new
 	end
@@ -31,6 +31,10 @@ class PostsController < ApplicationController
       format.html
       format.js
     end
+	end
+
+	def recommended
+		@posts = Post.all.sort_by{rand}.slice(0,20)
 	end
 
 	private
