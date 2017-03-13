@@ -3,7 +3,9 @@
 <%= @post.description %>
 <div id="likes">Likes: <%= @post.likes.count %></div>
 <%= render 'like_form' %>
-<%= render 'comments/form' %>
+<div id="comments_form">
+	<%= render 'comments/form' %>
+</div>
 <div id="comments">
 	<%= render @post.comments %>
 </div>
