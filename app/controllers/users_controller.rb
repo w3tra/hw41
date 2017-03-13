@@ -4,12 +4,6 @@ before_action :authenticate_user!
 		@user = User.find(params[:id])
 	end
 
-	def edit
-	end
-
-	def update
-	end
-
 	def following
     @title = "Following"
     @user  = User.find(params[:id])

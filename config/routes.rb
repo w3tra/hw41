@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/recommended', to: 'posts#recommended'
   root 'posts#feed'
   devise_for :users
-  resources :users, only: [:show, :edit, :update] do
+  resources :users, only: [:show] do
   	member do
       get :following, :followers
     end
